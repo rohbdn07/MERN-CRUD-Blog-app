@@ -23,5 +23,5 @@ app.set("view engine", "ejs"); //set Index.ejs as a Html
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(articleRouter);
-//app.use("/articles", articleRouter);
+//app.use(articleRouter);
+app.use("/articles", articleRouter);

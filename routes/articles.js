@@ -2,7 +2,9 @@ const express = require("express");
 const Article = require("./../models/article");
 const router = express.Router();
 
-
+router.get("/articles", (req, res) => {
+  res.redirect("/");
+});
 
 //get all the articles to display in index file....
 router.get("/", (req, res) => {
@@ -16,14 +18,14 @@ router.get("/", (req, res) => {
         articles: data,
       });
     });
- 
-
+});
 router.get("/new", (req, res) => {
   res.render("articles/new", { article: new Article() });
 });
 
 router.get("/:id", async (req, res) => {
-  const article = await Article.findById(req.params.id);
+  const id = req.params.id;
+  const article = await Article.findById(id);
   if (article == null) res.redirect("/");
   res.render("articles/show", { article: article });
 });
@@ -36,7 +38,8 @@ router.post("/", async (req, res) => {
   });
   try {
     article = await article.save();
-    res.redirect(`/articles/${article.id}`);
+    //res.redirect(`/articles/${id}`);
+    res.redirect("/articles");
   } catch (e) {
     res.render("articles/new", { article: article });
   }
