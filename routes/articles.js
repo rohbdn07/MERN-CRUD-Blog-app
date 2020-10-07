@@ -43,4 +43,14 @@ router.post("/", async (req, res) => {
   article.save();
 });
 
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const article = await Article.findByIdAndDelete(id);
+    res.render("articles/index");
+  } catch (err) {
+    console.log("could not able to delete", err);
+  }
+});
+
 module.exports = router;
