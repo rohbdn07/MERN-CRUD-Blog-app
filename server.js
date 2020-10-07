@@ -3,31 +3,25 @@ const articleRouter = require("./routes/articles");
 const mongoose = require("mongoose");
 const app = express();
 
-mongoose.connect("mongodb://localhost/blog", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+require("dotenv").config();
+
+//listing to localhost port....
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+//connection to database...
+const dbURI = process.env.mongodb_URI;
+mongoose
+  .connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("Connection to db"))
+  .catch((err) => console.log("database connection failed! :" + err));
 
 app.set("view engine", "ejs"); //set Index.ejs as a Html
 
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  const articles = [
-    {
-      title: "test articles",
-      createdAt: new Date(),
-      description: "test descriptions",
-    },
-    {
-      title: "test articles 2",
-      createdAt: new Date(),
-      description: "test descriptions 2",
-    },
-  ];
-  res.render("articles/index", { articles: articles });
-});
-
-app.use("/articles", articleRouter);
-app.listen(3000);
+app.use(articleRouter);
+//app.use("/articles", articleRouter);
