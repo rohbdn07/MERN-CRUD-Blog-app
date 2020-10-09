@@ -2,14 +2,26 @@ const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema(
   {
-    title: {
+    studentname: {
       type: String,
       required: true,
     },
-    description: {
+    email: {
       type: String,
     },
-    markdown: {
+    phonenumber: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    class: {
+      type: String,
+      required: true,
+    },
+    school: {
       type: String,
       required: true,
     },

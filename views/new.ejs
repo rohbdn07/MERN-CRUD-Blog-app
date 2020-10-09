@@ -12,15 +12,12 @@
     <title>Blog</title>
   </head>
   <body>
-    <div class="m-5 p-5">
-      <a class="btn btn-dark btn-sm text-light" href="/articles">
-        Back to home
-      </a>
-    </div>
-    <div class="container text-center">
-      <h1 class="mb-4"><%= article.title %></h1>
-      <h3><%=article.description %></h3>
-      <h5><%=article.description %></h5>
+    <div class="container">
+      <h1 class="m-4">Create Student Profile</h1>
+
+      <form action="/articles" method="POST">
+        <%-include('./partials/student.form.ejs') %>
+      </form>
     </div>
   </body>
 </html>

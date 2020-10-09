@@ -1,0 +1,38 @@
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="title of the article"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">description</label>
+    <input
+      type="text"
+      class="form-control"
+      id="description"
+      name="description"
+      placeholder="description shortly"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">markdown</label>
+    <textarea
+      class="form-control"
+      id="markdown"
+      name="markdown"
+      placeholder="write article..."
+      rows="3"
+      required
+    ></textarea>
+  </div>
+  <a class="btn btn-dark btn-sm mr-1" href="/articles">Cancel</a>
+  <button type="submit" class="btn btn-sm btn-danger">Submit</button>
+</form>

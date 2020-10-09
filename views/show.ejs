@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>Blog</title>
+  </head>
+  <body>
+    <div class="m-5 p-5">
+      <a class="btn btn-dark btn-sm text-light" href="/articles">
+        Back to home
+      </a>
+    </div>
+    <div class="container text-center card bg-dark text-light p-5">
+      <h1 class="mb-4">
+        Student Name :<%= article.studentname.toUpperCase() %>
+      </h1>
+      <h5>Email :<%=article.email %></h5>
+      <h5>Phone: <%=article.phonenumber %></h5>
+      <h5>Address: <%=article.address %></h5>
+      <h5>Class: <%=article.class %></h5>
+      <h5>School: <%=article.school %></h5>
+    </div>
+  </body>
+</html>
