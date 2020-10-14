@@ -41,15 +41,11 @@ router.post("/articles", async (req, res) => {
   });
   try {
     article = await article.save();
-    //res.redirect(`/articles/${id}`);
-    res.redirect("/articles", {
-      article: article,
-    });
+     
+    res.redirect('/');
   } catch (e) {
     res.render("new", { article: article });
   }
-
-  article.save();
 });
 
 router.delete("/articles/:id", async (req, res) => {
