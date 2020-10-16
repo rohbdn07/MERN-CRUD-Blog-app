@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Comment = require("./comment");
 
 const articleSchema = new mongoose.Schema(
   {
@@ -25,6 +26,13 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    comments: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Comment",
+        required: true,
+      },
+    ],
     createdAt: {
       type: Date,
       default: Date.now,

@@ -1,6 +1,9 @@
 const express = require("express");
 const articleRouter = require("./routes/articles");
 const mongoose = require("mongoose");
+const article= require('./models/article');
+const comment= require('./models/comment');
+
 const app = express();
 
 require("dotenv").config();
@@ -21,7 +24,10 @@ mongoose
 
 app.set("view engine", "ejs"); //set Index.ejs as a Html
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //app.use(articleRouter);
 app.use(articleRouter);
+app.use(article)
+
+

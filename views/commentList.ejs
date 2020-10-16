@@ -18,15 +18,9 @@
       </a>
     </div>
     <div class="container text-center card bg-dark text-light p-5">
-      <h1 class="mb-4">
-        Student Name :<%= article.studentname.toUpperCase() %>
-      </h1>
-      <h5>Email :<%=article.email %></h5>
-      <h5>Phone: <%=article.phonenumber %></h5>
-      <h5>Address: <%=article.address %></h5>
-      <h5>Class: <%=article.class %></h5>
-      <h5>School: <%=article.school %></h5>
+      <h1 class="mb-4">comment ID :<%= comment._id %></h1>
+      <h5>username :<%=comment.username %></h5>
+      <h5>Comment: <%=comment.content %></h5>
     </div>
-    <%-include('./comment.ejs')%>
   </body>
 </html>
